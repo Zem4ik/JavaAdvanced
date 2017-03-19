@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="junit-4.11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
