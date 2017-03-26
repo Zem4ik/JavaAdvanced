@@ -15,17 +15,55 @@ import java.util.stream.Collectors;
  */
 public class IterativeParallelism implements ListIP {
 
-
+    /**
+     * Returns the maximum element of the given collection, according to the
+     * order induced by the specified comparator. Number of threads used in
+     * searching maximum is specified.
+     *
+     * @param i          number of threads
+     * @param list       given list
+     * @param comparator specified comparator
+     * @param <T>        the class of the objects in the collection
+     * @return maximum element of given list
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public <T> T maximum(int i, List<? extends T> list, Comparator<? super T> comparator) throws InterruptedException {
         return runThreads(i, list, (sublist) -> Collections.max(sublist, comparator), (results) -> Collections.max(results, comparator));
     }
 
+    /**
+     * Returns the minimum element of the given collection, according to the
+     * order induced by the specified comparator. Number of threads used in
+     * searching minimum is specified.
+     *
+     * @param i          number of threads
+     * @param list       given list
+     * @param comparator specified comparator
+     * @param <T>        the class of the objects in the collection
+     * @return minimum element of given list
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public <T> T minimum(int i, List<? extends T> list, Comparator<? super T> comparator) throws InterruptedException {
         return maximum(i, list, Collections.reverseOrder(comparator));
     }
 
+    /**
+     * Returns whether all elements of given list match the provided predicate.
+     * Number of threads method can work with is specified.
+     *
+     * @param i         number of threads
+     * @param list      given list
+     * @param predicate provided predicate
+     * @param <T>       the class of the objects in the collection
+     * @return {@code true} if either all elements of the list match the
+     * provided predicate
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public <T> boolean all(int i, List<? extends T> list, Predicate<? super T> predicate) throws InterruptedException {
         return runThreads(i, list,
@@ -33,11 +71,34 @@ public class IterativeParallelism implements ListIP {
                 (results) -> !results.contains(false));
     }
 
+    /**
+     * Returns whether any element of given list match the provided predicate.
+     * Number of threads method can work with is specified.
+     *
+     * @param i         number of threads
+     * @param list      given list
+     * @param predicate provided predicate
+     * @param <T>       the class of the objects in the collection
+     * @return {@code true} if any all elements of the list match the
+     * provided predicate
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public <T> boolean any(int i, List<? extends T> list, Predicate<? super T> predicate) throws InterruptedException {
         return !all(i, list, predicate.negate());
     }
 
+    /**
+     * Return a concatenation of string representations of objects from list.
+     * Number of threads method can work with is specified.
+     *
+     * @param i    number of threads
+     * @param list given list
+     * @return a string representation of objects
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public String join(int i, List<?> list) throws InterruptedException {
         return runThreads(i, list,
@@ -45,6 +106,18 @@ public class IterativeParallelism implements ListIP {
                 (results) -> results.stream().collect(Collectors.joining()));
     }
 
+    /**
+     * Returns a list consisting of the elements of given list that match
+     * the given predicate. Number of threads method can work with is specified.
+     *
+     * @param i         number of threads
+     * @param list      given list
+     * @param predicate provided predicate
+     * @param <T>       the class of the objects in the collection
+     * @return a new list
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public <T> List<T> filter(int i, List<? extends T> list, Predicate<? super T> predicate) throws InterruptedException {
         return runThreads(i, list,
@@ -52,6 +125,19 @@ public class IterativeParallelism implements ListIP {
                 (results) -> results.stream().flatMap(List::stream).collect(Collectors.toList()));
     }
 
+    /**
+     * Returns a list consisting of the results of applying the given
+     * function to the elements of given list. Number of threads method
+     * can work with is specified.
+     *
+     * @param i        number of threads
+     * @param list     given list
+     * @param function provided function
+     * @param <T>      the class of the objects in the collection
+     * @return a new list
+     * @throws InterruptedException thrown when one of threads is waiting, sleeping, or otherwise occupied,
+     *                              and the thread is interrupted, either before or during the activity.
+     */
     @Override
     public <T, U> List<U> map(int i, List<? extends T> list, Function<? super T, ? extends U> function) throws InterruptedException {
         return runThreads(i, list,
@@ -76,9 +162,7 @@ public class IterativeParallelism implements ListIP {
             threads.get(threads.size() - 1).start();
         }
         for (Thread thread : threads) {
-            if (thread.isAlive()) {
-                thread.join();
-            }
+            thread.join();
         }
         return resultFunction.apply(results);
     }

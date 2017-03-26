@@ -12,5 +12,7 @@
     <orderEntry type="library" name="jsoup-1.8.1" level="project" />
     <orderEntry type="library" name="junit-4.11" level="project" />
     <orderEntry type="library" name="IterativeParallelismTest" level="project" />
+    <orderEntry type="library" name="ImplementorTest" level="project" />
+    <orderEntry type="library" name="WalkTest" level="project" />
   </component>
 </module>
