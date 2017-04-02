@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ParallelMapperTest">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/java-advanced-2017/artifacts/ParallelMapperTest.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

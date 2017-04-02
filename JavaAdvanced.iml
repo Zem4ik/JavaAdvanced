@@ -4,6 +4,11 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ru/ifmo/ctddev/Zemtsov/arrayset" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ru/ifmo/ctddev/Zemtsov/concurrent" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ru/ifmo/ctddev/Zemtsov/implementor" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ru/ifmo/ctddev/Zemtsov/mapper" />
+      <excludeFolder url="file://$MODULE_DIR$/src/ru/ifmo/ctddev/Zemtsov/walk" />
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -14,5 +19,6 @@
     <orderEntry type="library" name="IterativeParallelismTest" level="project" />
     <orderEntry type="library" name="ImplementorTest" level="project" />
     <orderEntry type="library" name="WalkTest" level="project" />
+    <orderEntry type="library" name="ParallelMapperTest" level="project" />
   </component>
 </module>
