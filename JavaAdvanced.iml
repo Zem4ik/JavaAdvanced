@@ -20,5 +20,6 @@
     <orderEntry type="library" name="ImplementorTest" level="project" />
     <orderEntry type="library" name="WalkTest" level="project" />
     <orderEntry type="library" name="ParallelMapperTest" level="project" />
+    <orderEntry type="library" name="jsoup-1.8.1" level="project" />
   </component>
 </module>

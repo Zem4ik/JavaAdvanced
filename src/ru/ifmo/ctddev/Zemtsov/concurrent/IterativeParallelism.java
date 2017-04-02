@@ -2,6 +2,7 @@ package ru.ifmo.ctddev.Zemtsov.concurrent;
 
 import info.kgeorgiy.java.advanced.concurrent.ListIP;
 import info.kgeorgiy.java.advanced.concurrent.ScalarIP;
+import info.kgeorgiy.java.advanced.mapper.ParallelMapper;
 
 import java.awt.*;
 import java.util.*;
@@ -14,6 +15,11 @@ import java.util.stream.Collectors;
  * Created by vlad on 19.03.17.
  */
 public class IterativeParallelism implements ListIP {
+    private ParallelMapper parallelMapper;
+
+    public IterativeParallelism(ParallelMapper parallelMapper) {
+        this.parallelMapper = parallelMapper;
+    }
 
     /**
      * Returns the maximum element of the given collection, according to the
@@ -145,24 +151,40 @@ public class IterativeParallelism implements ListIP {
                 (results) -> results.stream().flatMap(List::stream).collect(Collectors.toList()));
     }
 
-    private <T, U> U runThreads(int i, List<? extends T> list, Function<List<? extends T>, U> threadFunction, Function<List<U>, U> resultFunction) throws InterruptedException {
-        ArrayList<Thread> threads = new ArrayList<>();
-        ArrayList<U> results = new ArrayList<U>();
-        int count = Integer.max(list.size() / i + (list.size() % i > 0 ? 1 : 0), 2);
+    private <T> List<List<T>> parseList(int threads, List<T> list) {
+        List<List<T>> lists = new ArrayList<List<T>>();
+        int count = list.size() / threads + (list.size() % threads > 0 ? 1 : 0);
         int numOfThreads = list.size() / count + (list.size() % count > 0 ? 1 : 0);
         for (int j = 0; j < numOfThreads; ++j) {
-            results.add(null);
-        }
-        for (int j = 0; j < numOfThreads; ++j) {
             int lastIndex = ((j + 1) * count) <= list.size() ? ((j + 1) * count) : list.size();
-            int finalJ = j;
-            threads.add(new Thread(() -> {
-                results.set(finalJ, threadFunction.apply(list.subList(finalJ * count, lastIndex)));
-            }));
-            threads.get(threads.size() - 1).start();
+            lists.add(list.subList(j * count, lastIndex));
         }
-        for (Thread thread : threads) {
-            thread.join();
+        return lists;
+    }
+
+    private <T, U> U runThreads(int i, List<? extends T> list, Function<List<? extends T>, U> threadFunction, Function<List<U>, U> resultFunction) throws InterruptedException {
+        List<U> results;
+        if (parallelMapper == null) {
+            results = new ArrayList<U>();
+            ArrayList<Thread> threads = new ArrayList<>();
+            int count = Integer.max(list.size() / i + (list.size() % i > 0 ? 1 : 0), 2);
+            int numOfThreads = list.size() / count + (list.size() % count > 0 ? 1 : 0);
+            for (int j = 0; j < numOfThreads; ++j) {
+                results.add(null);
+            }
+            for (int j = 0; j < numOfThreads; ++j) {
+                int lastIndex = ((j + 1) * count) <= list.size() ? ((j + 1) * count) : list.size();
+                int finalJ = j;
+                threads.add(new Thread(() -> {
+                    results.set(finalJ, threadFunction.apply(list.subList(finalJ * count, lastIndex)));
+                }));
+                threads.get(threads.size() - 1).start();
+            }
+            for (Thread thread : threads) {
+                thread.join();
+            }
+        } else {
+            results = parallelMapper.<List<? extends T>, U>map(threadFunction, parseList(i, list));
         }
         return resultFunction.apply(results);
     }

@@ -4,6 +4,7 @@ package ru.ifmo.ctddev.Zemtsov.crawler;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -11,7 +12,7 @@ import java.util.concurrent.*;
  * Created by vlad on 02.04.17.
  */
 public class WebCrawler implements Crawler {
-    private CopyOnWriteArrayList<String> downloaded;
+    private ArrayList<String> downloaded;
     private ConcurrentHashMap<String, IOException> errors;
     private ConcurrentHashMap<String, Document> URLMap;
     private ConcurrentHashMap<String, Integer> downloadingPerHost;
@@ -21,6 +22,10 @@ public class WebCrawler implements Crawler {
     private final ExecutorService extractService;
 
     public WebCrawler(Downloader downloader, int downloaders, int extractors, int perHost) {
+        errors = new ConcurrentHashMap<>();
+        URLMap = new ConcurrentHashMap<>();
+        downloadingPerHost = new ConcurrentHashMap<>();
+        downloaded = new ArrayList<>();
         downloadService = Executors.newFixedThreadPool(downloaders);
         extractService = Executors.newFixedThreadPool(extractors);
         this.perHost = perHost;
@@ -31,16 +36,10 @@ public class WebCrawler implements Crawler {
     public Result download(String url, int depth) {
         try {
             String host = URLUtils.getHost(url);
-            Runnable extractLinks = new Runnable() {
+            Callable<Result> currentRun = new Runnable() {
                 @Override
                 public void run() {
-
-                }
-            };
-            Runnable currentRun = new Runnable() {
-                @Override
-                public void run() {
-                    if (downloadingPerHost.get(host) >= perHost) {
+                    if (downloadingPerHost.get(host) != null && downloadingPerHost.get(host) >= perHost) {
                         downloadService.submit(this);
                     } else {
                         if (URLMap.containsKey(url)) {
@@ -49,12 +48,16 @@ public class WebCrawler implements Crawler {
                         downloadingPerHost.compute(host, (key, value) -> (value == null) ? 1 : value + 1);
                         try {
                             Document document = downloader.download(url);
+                            synchronized (downloaded) {
+                                downloaded.add(url);
+                            }
+                            downloadingPerHost.compute(host, (key, value) -> (value == null) ? 0 : value - 1);
                             extractService.submit(() -> {
                                 try {
-                                    List<String> links = document.extractLinks();
                                     if (depth > 1) {
+                                        List<String> links = document.extractLinks();
                                         for (String url : links) {
-                                            WebCrawler::download(url, depth - 1);
+                                            downloadURL(url, depth - 1);
                                         }
                                     }
                                 } catch (IOException e) {
@@ -67,18 +70,17 @@ public class WebCrawler implements Crawler {
                     }
                 }
             };
-            downloadService.submit(currentRun);
+
         } catch (MalformedURLException e) {
             //ignore error
         }
-    }
-
-    private void extractLinks(Document document) {
-
+        downloadService.submit(currentRun);
+        return new Result(downloaded, errors);
     }
 
     @Override
     public void close() {
-
+        downloadService.shutdownNow();
+        extractService.shutdownNow();
     }
 }
