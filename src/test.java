@@ -9,8 +9,8 @@ public class test {
 
     public static void main(String[] args) throws IOException {
         WebCrawler webCrawler = new WebCrawler(new CachingDownloader(), 10, 10, 2);
-        Result result = webCrawler.download("http://www.kgeorgiy.info/", 1);
+        Result result = webCrawler.download("http://www.kgeorgiy.info/", 2);
         System.out.println(result.getDownloaded());
-
+        webCrawler.close();
     }
 }
