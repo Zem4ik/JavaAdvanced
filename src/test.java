@@ -3,6 +3,7 @@ import javafx.util.Pair;
 import ru.ifmo.ctddev.Zemtsov.crawler.*;
 import java.io.IOException;
 import java.util.Map;
+import info.kgeorgiy.java.advanced.crawler.*;
 
 /**
  * Created by vlad on 19.03.17.

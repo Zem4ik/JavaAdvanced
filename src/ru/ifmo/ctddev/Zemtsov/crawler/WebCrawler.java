@@ -2,6 +2,7 @@ package ru.ifmo.ctddev.Zemtsov.crawler;
 
 
 import com.sun.org.apache.regexp.internal.RE;
+import info.kgeorgiy.java.advanced.crawler.*;
 
 import java.io.IOException;
 import java.util.*;
