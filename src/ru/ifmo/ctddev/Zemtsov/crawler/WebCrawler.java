@@ -120,7 +120,7 @@ public class WebCrawler implements Crawler {
                     flag[0] = true;
                     return value + 1;
                 });
-                if (!flag[0]) Thread.sleep(2 * 1000);
+                if (!flag[0]) Thread.sleep(50);
             }
 
             //from this moment we now that we can work with this site

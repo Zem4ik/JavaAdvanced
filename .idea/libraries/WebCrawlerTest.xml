@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="WebCrawlerTest">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/WebCrawlerTest.jar!/" />
+      <root url="jar://$PROJECT_DIR$/java-advanced-2017/artifacts/WebCrawlerTest.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
