@@ -1,12 +1,13 @@
 package ru.ifmo.ctddev.Zemtsov.crawler;
 
-
 import com.sun.org.apache.regexp.internal.RE;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import info.kgeorgiy.java.advanced.crawler.*;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.function.Function;
 
 /**
  * Created by vlad on 02.04.17.
@@ -17,13 +18,13 @@ public class WebCrawler implements Crawler {
     private final ExecutorService downloadService;
     private final ExecutorService extractService;
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         if (args != null && args[0] != null) {
             int downloads = 10;
             int extractors = 10;
             int perHost = 10;
             if (args[1] != null) downloads = Integer.parseInt(args[1]);
-            if (args[2] != null) extractors= Integer.parseInt(args[2]);
+            if (args[2] != null) extractors = Integer.parseInt(args[2]);
             if (args[3] != null) perHost = Integer.parseInt(args[3]);
             try {
                 WebCrawler webCrawler = new WebCrawler(new CachingDownloader(), downloads, extractors, perHost);
@@ -41,14 +42,16 @@ public class WebCrawler implements Crawler {
         } else {
             System.err.println("Usage: WebCrawler url [downloads [extractors [perHost]]]");
         }
-    }
+    }*/
 
     private class LocalInfo {
-        ConcurrentHashMap<String, Boolean> URLMap;
-        ConcurrentHashMap<String, Integer> downloadingPerHost;
+        //HashMap with processed URL
+        final ConcurrentHashMap<String, Boolean> URLMap;
+        //HashMap with host's name and count of loading
+        final ConcurrentHashMap<String, Integer> downloadingPerHost;
 
         LocalInfo() {
-            URLMap = new ConcurrentHashMap<String, Boolean>();
+            URLMap = new ConcurrentHashMap<>();
             downloadingPerHost = new ConcurrentHashMap<>();
         }
     }
@@ -62,88 +65,82 @@ public class WebCrawler implements Crawler {
 
     @Override
     public Result download(String url, int depth) {
+        //list of all sites
         List<String> downloaded = new ArrayList<>();
         Map<String, IOException> errors = new HashMap<>();
         LocalInfo localInfo = new LocalInfo();
+        //Future objects for all threads
         BlockingQueue<Future<Result>> futures = new LinkedBlockingQueue<>();
         futures.add(downloadService.submit(createDownloadingCallable(futures, url, depth, localInfo)));
         while (!futures.isEmpty()) {
             Future<Result> future = futures.poll();
             try {
                 Result result = future.get();
-                if (result.getDownloaded() == null) continue;
+                //all fictive object would be skipped
                 downloaded.addAll(result.getDownloaded());
                 errors.putAll(result.getErrors());
             } catch (InterruptedException | ExecutionException e) {
-                //ingoring
+                //ignoring
             }
         }
         return new Result(downloaded, errors);
     }
 
-    private Callable<Result> createDownloadingCallable(BlockingQueue<Future<Result>> futures, String url, int depth, LocalInfo localInfo) {
+    private Callable<Result> createDownloadingCallable(final BlockingQueue<Future<Result>> futures, final String url, final int depth, final LocalInfo localInfo) {
         return () -> {
             List<String> downloaded = new ArrayList<>();
             Map<String, IOException> errors = new HashMap<>();
             String host = URLUtils.getHost(url);
-            final boolean[] flag = {false};
 
             //flag for containing this url in map
+            final boolean[] flag = {false};
             localInfo.URLMap.compute(url, (key, value) -> {
-                if (value == null) {
+                if (value == null || !value) {
                     flag[0] = true;
                 }
                 return true;
             });
 
             //if this url was already downloaded we finish our work
-            if (!flag[0]) return new Result(null, null);
+            if (!flag[0]) return new Result(new ArrayList<>(), new HashMap<>());
 
-            //waiting for the moment, when we can continue our work
-            flag[0] = false;
-            while (!flag[0]) {
-                localInfo.downloadingPerHost.compute(host, (key, value) -> {
-                    if (value == null) {
-                        flag[0] = true;
-                        return 1;
-                    }
-                    if (value >= perHost) {
-                        Future<Result> future = downloadService.submit(createDownloadingCallable(futures, url, depth - 1, localInfo));
-                        try {
-                            futures.put(future);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        flag[0] = false;
-                        return value;
-                    }
-                    flag[0] = true;
-                    return value + 1;
-                });
-                if (!flag[0]) Thread.sleep(50);
+            //checking ow many threads are working with current host
+            int newVal = localInfo.downloadingPerHost.compute(host, (key, value) -> {
+                if (value == null) {
+                    return 1;
+                }
+                return value + 1;
+            });
+            if (newVal > perHost) {
+                localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
+                localInfo.URLMap.put(url, false);
+                Future<Result> future = downloadService.submit(createDownloadingCallable(futures, url, depth, localInfo));
+                futures.put(future);
+                return new Result(new ArrayList<>(), new HashMap<>());
             }
 
-            //from this moment we now that we can work with this site
+            //in this moment we can work with this site
             try {
                 Document document = downloader.download(url);
                 downloaded.add(url);
-                localInfo.downloadingPerHost.compute(host, (key, value) -> (value == null) ? 0 : value - 1);
+                localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
+                //pre: document was downloaded
+                //callable for extracting, if depth > 1
                 Callable<Result> extractCallable = () -> {
                     try {
                         if (depth > 1) {
                             List<String> links = document.extractLinks();
                             for (String string : links) {
-                                Future<Result> future = downloadService.submit(createDownloadingCallable(futures, string, depth - 1, localInfo));
-                                futures.put(future);
+                                futures.put(downloadService
+                                        .submit(createDownloadingCallable(futures, string, depth - 1, localInfo)));
                             }
                         }
                     } catch (IOException e) {
                         errors.compute(url, (key, value) -> e);
                     }
-                    return new Result(null, null);
+                    return new Result(new ArrayList<>(), new HashMap<>());
                 };
-                Future<Result> extractFuture = extractService.submit(extractCallable);
-                futures.put(extractFuture);
+                futures.put(extractService.submit(extractCallable));
             } catch (IOException e) {
                 errors.compute(url, (key, value) -> e);
             }
