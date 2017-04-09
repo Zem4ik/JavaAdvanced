@@ -62,8 +62,11 @@ public class WebCrawler implements Crawler {
 
     public WebCrawler(Downloader downloader, int downloaders, int extractors, int perHost) {
         //testing with fixed thread pool
-        downloadService = Executors.newFixedThreadPool(Integer.min(downloaders, 5000));
-        extractService = Executors.newFixedThreadPool(Integer.min(extractors, 5000));
+//        downloadService = Executors.newFixedThreadPool(Integer.min(downloaders, 5000));
+//        extractService = Executors.newFixedThreadPool(Integer.min(extractors, 5000));
+
+        downloadService = Executors.newFixedThreadPool(downloaders);
+        extractService = Executors.newFixedThreadPool(extractors);
         this.perHost = perHost;
         this.downloader = downloader;
     }
@@ -96,6 +99,11 @@ public class WebCrawler implements Crawler {
         return () -> {
             List<String> downloaded = new ArrayList<>();
             Map<String, IOException> errors = new HashMap<>();
+
+//            if (localInfo.URLMap.put(url, true) != null) {
+//                return null;
+//            }
+
             String host;
             try {
                 host = URLUtils.getHost(url);
@@ -111,6 +119,7 @@ public class WebCrawler implements Crawler {
                 return value + 1;
             });
             if (newVal > perHost) {
+                // localInfo.URLMap.remove(url);
                 localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
                 localInfo.futures.put(downloadService.submit(createDownloadingCallable(url, depth, localInfo)));
                 return null;
@@ -120,6 +129,7 @@ public class WebCrawler implements Crawler {
             try {
                 Document document = downloader.download(url);
                 downloaded.add(url);
+                localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
                 //pre: document was downloaded
                 //callable for extracting, if depth > 1
                 if (depth > 1) {
@@ -139,9 +149,9 @@ public class WebCrawler implements Crawler {
                     }));
                 }
             } catch (IOException e) {
+                localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
                 errors.put(url, e);
             }
-            localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
             return new Result(downloaded, errors);
         };
     }
