@@ -83,7 +83,8 @@ public class WebCrawler implements Crawler {
                 downloaded.addAll(result.getDownloaded());
                 errors.putAll(result.getErrors());
             } catch (InterruptedException | ExecutionException e) {
-                //ignoring
+                e.getCause().printStackTrace();
+                System.out.println("DEBUG: " + java.lang.Thread.activeCount());
             }
         }
         return new Result(downloaded, errors);
