@@ -5,6 +5,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import info.kgeorgiy.java.advanced.crawler.*;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Function;
@@ -49,8 +50,11 @@ public class WebCrawler implements Crawler {
         final ConcurrentHashMap<String, Boolean> URLMap;
         //HashMap with host's name and count of loading
         final ConcurrentHashMap<String, Integer> downloadingPerHost;
+        //Future objects for all threads
+        BlockingQueue<Future<Result>> futures;
 
         LocalInfo() {
+            futures = new LinkedBlockingQueue<>();
             URLMap = new ConcurrentHashMap<>();
             downloadingPerHost = new ConcurrentHashMap<>();
         }
@@ -69,11 +73,10 @@ public class WebCrawler implements Crawler {
         List<String> downloaded = new ArrayList<>();
         Map<String, IOException> errors = new HashMap<>();
         LocalInfo localInfo = new LocalInfo();
-        //Future objects for all threads
-        BlockingQueue<Future<Result>> futures = new LinkedBlockingQueue<>();
-        futures.add(downloadService.submit(createDownloadingCallable(futures, url, depth, localInfo)));
-        while (!futures.isEmpty()) {
-            Future<Result> future = futures.poll();
+        localInfo.URLMap.put(url, true);
+        localInfo.futures.add(downloadService.submit(createDownloadingCallable(url, depth, localInfo)));
+        while (!localInfo.futures.isEmpty()) {
+            Future<Result> future = localInfo.futures.poll();
             try {
                 Result result = future.get();
                 //all fictive object would be skipped
@@ -86,23 +89,16 @@ public class WebCrawler implements Crawler {
         return new Result(downloaded, errors);
     }
 
-    private Callable<Result> createDownloadingCallable(final BlockingQueue<Future<Result>> futures, final String url, final int depth, final LocalInfo localInfo) {
+    private Callable<Result> createDownloadingCallable(final String url, final int depth, final LocalInfo localInfo) {
         return () -> {
             List<String> downloaded = new ArrayList<>();
             Map<String, IOException> errors = new HashMap<>();
-            String host = URLUtils.getHost(url);
-
-            //flag for containing this url in map
-            final boolean[] flag = {false};
-            localInfo.URLMap.compute(url, (key, value) -> {
-                if (value == null || !value) {
-                    flag[0] = true;
-                }
-                return true;
-            });
-
-            //if this url was already downloaded we finish our work
-            if (!flag[0]) return new Result(new ArrayList<>(), new HashMap<>());
+            String host;
+            try {
+                host = URLUtils.getHost(url);
+            } catch (MalformedURLException e) {
+                host = url;
+            }
 
             //checking ow many threads are working with current host
             int newVal = localInfo.downloadingPerHost.compute(host, (key, value) -> {
@@ -113,38 +109,42 @@ public class WebCrawler implements Crawler {
             });
             if (newVal > perHost) {
                 localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
-                localInfo.URLMap.put(url, false);
-                Future<Result> future = downloadService.submit(createDownloadingCallable(futures, url, depth, localInfo));
-                futures.put(future);
-                return new Result(new ArrayList<>(), new HashMap<>());
+                localInfo.futures.put(downloadService.submit(createDownloadingCallable(url, depth, localInfo)));
+                return new Result(downloaded, errors);
             }
 
             //in this moment we can work with this site
             try {
                 Document document = downloader.download(url);
                 downloaded.add(url);
-                localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
                 //pre: document was downloaded
                 //callable for extracting, if depth > 1
-                Callable<Result> extractCallable = () -> {
-                    try {
-                        if (depth > 1) {
-                            List<String> links = document.extractLinks();
-                            for (String string : links) {
-                                futures.put(downloadService
-                                        .submit(createDownloadingCallable(futures, string, depth - 1, localInfo)));
-                            }
-                        }
-                    } catch (IOException e) {
-                        errors.compute(url, (key, value) -> e);
-                    }
-                    return new Result(new ArrayList<>(), new HashMap<>());
-                };
-                futures.put(extractService.submit(extractCallable));
+                if (depth > 1) {
+                    localInfo.futures.put(extractService.submit(createExtractingCallable(document, url, depth, localInfo)));
+                }
             } catch (IOException e) {
-                errors.compute(url, (key, value) -> e);
+                errors.put(url, e);
             }
+            localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
             return new Result(downloaded, errors);
+        };
+    }
+
+    private Callable<Result> createExtractingCallable(final Document document, final String url, final int depth, final LocalInfo localInfo) {
+        return () -> {
+            HashMap<String, IOException> errors = new HashMap<>();
+            try {
+                List<String> links = document.extractLinks();
+                for (String newUrl : links) {
+                    if (localInfo.URLMap.put(newUrl, true) == null) {
+                        localInfo.futures.put(downloadService
+                                .submit(createDownloadingCallable(newUrl, depth - 1, localInfo)));
+                    }
+                }
+            } catch (IOException e) {
+                errors.put(url, e);
+            }
+            return new Result(new ArrayList<>(), errors);
         };
     }
 
