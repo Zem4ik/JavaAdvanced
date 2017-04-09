@@ -16,11 +16,8 @@ import java.util.function.Function;
 public class WebCrawler implements Crawler {
     private final Downloader downloader;
     private final int perHost;
-    private final ThreadPoolExecutor downloadService;
-    private final ThreadPoolExecutor extractService;
-    //debug variables
-    int d;
-    int ex;
+    private final ExecutorService downloadService;
+    private final ExecutorService extractService;
 
     public static void main(String[] args) {
         if (args != null && args[0] != null) {
@@ -64,13 +61,9 @@ public class WebCrawler implements Crawler {
     }
 
     public WebCrawler(Downloader downloader, int downloaders, int extractors, int perHost) {
-        d =downloaders;
-        ex = extractors;
-        downloadService = (ThreadPoolExecutor) Executors.newFixedThreadPool(downloaders);
-        extractService = (ThreadPoolExecutor) Executors.newFixedThreadPool(extractors);
         //testing with fixed thread pool
-//        downloadService = (ThreadPoolExecutor) Executors.newFixedThreadPool(Integer.min(downloaders, 5000));
-//        extractService = (ThreadPoolExecutor) Executors.newFixedThreadPool(Integer.min(extractors, 5000));
+        downloadService = Executors.newFixedThreadPool(Integer.min(downloaders, 5000));
+        extractService = Executors.newFixedThreadPool(Integer.min(extractors, 5000));
         this.perHost = perHost;
         this.downloader = downloader;
     }
@@ -87,20 +80,13 @@ public class WebCrawler implements Crawler {
             Future<Result> future = localInfo.futures.poll();
             try {
                 Result result = future.get();
-                downloaded.addAll(result.getDownloaded());
-                errors.putAll(result.getErrors());
+                if (result != null) {
+                    downloaded.addAll(result.getDownloaded());
+                    errors.putAll(result.getErrors());
+                }
             } catch (InterruptedException | ExecutionException e) {
                 //debug info
                 e.getCause().printStackTrace();
-                System.out.println("GGG: " + Thread.getAllStackTraces().keySet().size() + " " + Thread.activeCount());
-                System.out.println("working threads: " + extractService.getActiveCount() + " " + downloadService.getActiveCount());
-                System.out.println("pool: " + extractService.getPoolSize() + " " + downloadService.getPoolSize());
-                System.out.println("extractors = " + ex);
-                System.out.println("downloaders  = " + d);
-                System.out.println("depth: " + depth);
-                System.out.println("url: " + url);
-                System.out.println("perHost: " + perHost);
-                System.out.flush();
             }
         }
         return new Result(downloaded, errors);
@@ -127,7 +113,7 @@ public class WebCrawler implements Crawler {
             if (newVal > perHost) {
                 localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
                 localInfo.futures.put(downloadService.submit(createDownloadingCallable(url, depth, localInfo)));
-                return new Result(downloaded, errors);
+                return null;
             }
 
             //in this moment we can work with this site
@@ -137,31 +123,26 @@ public class WebCrawler implements Crawler {
                 //pre: document was downloaded
                 //callable for extracting, if depth > 1
                 if (depth > 1) {
-                    localInfo.futures.put(extractService.submit(createExtractingCallable(document, url, depth, localInfo)));
+                    localInfo.futures.put(extractService.submit(() -> {
+                        try {
+                            List<String> links = document.extractLinks();
+                            for (String newUrl : links) {
+                                if (localInfo.URLMap.put(newUrl, true) == null) {
+                                    localInfo.futures.put(downloadService
+                                            .submit(createDownloadingCallable(newUrl, depth - 1, localInfo)));
+                                }
+                            }
+                        } catch (IOException e) {
+                            errors.put(url, e);
+                        }
+                        return null;
+                    }));
                 }
             } catch (IOException e) {
                 errors.put(url, e);
             }
             localInfo.downloadingPerHost.compute(host, (key, value) -> value - 1);
             return new Result(downloaded, errors);
-        };
-    }
-
-    private Callable<Result> createExtractingCallable(final Document document, final String url, final int depth, final LocalInfo localInfo) {
-        return () -> {
-            HashMap<String, IOException> errors = new HashMap<>();
-            try {
-                List<String> links = document.extractLinks();
-                for (String newUrl : links) {
-                    if (localInfo.URLMap.put(newUrl, true) == null) {
-                        localInfo.futures.put(downloadService
-                                .submit(createDownloadingCallable(newUrl, depth - 1, localInfo)));
-                    }
-                }
-            } catch (IOException e) {
-                errors.put(url, e);
-            }
-            return new Result(new ArrayList<>(), errors);
         };
     }
 
