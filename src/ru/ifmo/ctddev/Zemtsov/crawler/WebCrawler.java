@@ -16,10 +16,13 @@ import java.util.function.Function;
 public class WebCrawler implements Crawler {
     private final Downloader downloader;
     private final int perHost;
-    private final ExecutorService downloadService;
-    private final ExecutorService extractService;
+    private final ThreadPoolExecutor downloadService;
+    private final ThreadPoolExecutor extractService;
+    //debug variables
+    int d;
+    int ex;
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         if (args != null && args[0] != null) {
             int downloads = 10;
             int extractors = 10;
@@ -43,7 +46,7 @@ public class WebCrawler implements Crawler {
         } else {
             System.err.println("Usage: WebCrawler url [downloads [extractors [perHost]]]");
         }
-    }*/
+    }
 
     private class LocalInfo {
         //HashMap with processed URL
@@ -61,8 +64,13 @@ public class WebCrawler implements Crawler {
     }
 
     public WebCrawler(Downloader downloader, int downloaders, int extractors, int perHost) {
-        downloadService = Executors.newFixedThreadPool(downloaders);
-        extractService = Executors.newFixedThreadPool(extractors);
+        d =downloaders;
+        ex = extractors;
+        downloadService = (ThreadPoolExecutor) Executors.newFixedThreadPool(downloaders);
+        extractService = (ThreadPoolExecutor) Executors.newFixedThreadPool(extractors);
+        //testing with fixed thread pool
+//        downloadService = (ThreadPoolExecutor) Executors.newFixedThreadPool(Integer.min(downloaders, 5000));
+//        extractService = (ThreadPoolExecutor) Executors.newFixedThreadPool(Integer.min(extractors, 5000));
         this.perHost = perHost;
         this.downloader = downloader;
     }
@@ -79,12 +87,20 @@ public class WebCrawler implements Crawler {
             Future<Result> future = localInfo.futures.poll();
             try {
                 Result result = future.get();
-                //all fictive object would be skipped
                 downloaded.addAll(result.getDownloaded());
                 errors.putAll(result.getErrors());
             } catch (InterruptedException | ExecutionException e) {
+                //debug info
                 e.getCause().printStackTrace();
-                System.out.println("DEBUG: " + java.lang.Thread.activeCount());
+                System.out.println("GGG: " + Thread.getAllStackTraces().keySet().size() + " " + Thread.activeCount());
+                System.out.println("working threads: " + extractService.getActiveCount() + " " + downloadService.getActiveCount());
+                System.out.println("pool: " + extractService.getPoolSize() + " " + downloadService.getPoolSize());
+                System.out.println("extractors = " + ex);
+                System.out.println("downloaders  = " + d);
+                System.out.println("depth: " + depth);
+                System.out.println("url: " + url);
+                System.out.println("perHost: " + perHost);
+                System.out.flush();
             }
         }
         return new Result(downloaded, errors);

@@ -11,14 +11,15 @@ import info.kgeorgiy.java.advanced.crawler.*;
 public class test {
 
     public static void main(String[] args) throws IOException {
-        WebCrawler webCrawler = new WebCrawler(new CachingDownloader(), 10, 10, 10);
-        Result result = webCrawler.download("http://www.kgeorgiy.info/", 2);
+        WebCrawler webCrawler = new WebCrawler(new CachingDownloader(), 2147483647, 2147483647, 2147483647);
+        Result result = webCrawler.download("http://www.kgeorgiy.info", 4);
         System.out.println(result.getDownloaded().size());
         result.getDownloaded().forEach(System.out::println);
         System.out.println(result.getErrors().size());
-        for (Map.Entry pair : result.getErrors().entrySet()) {
-            System.out.println(pair.getKey() + " ## " + pair.getValue());
-        }
+        System.out.println(result.getDownloaded().size());
+        //for (Map.Entry pair : result.getErrors().entrySet()) {
+        //    System.out.println(pair.getKey() + " ## " + pair.getValue());
+        //}
         webCrawler.close();
     }
 }
