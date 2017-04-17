@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34e8b64a-17da-496c-a725-7097b512b30e" name="Default" comment="hw 7 fix">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/java-advanced-2017" afterPath="$PROJECT_DIR$/java-advanced-2017" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JavaAdvanced.iml" afterPath="$PROJECT_DIR$/JavaAdvanced.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test.java" afterPath="$PROJECT_DIR$/src/test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java" afterPath="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,23 +25,24 @@
       <file leaf-file-name="WebCrawler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state relative-caret-position="1864">
+              <caret line="166" column="82" lean-forward="false" selection-start-line="166" selection-start-column="82" selection-end-line="166" selection-end-column="82" />
               <folding>
                 <element signature="docComment;class#WebCrawler#0" expanded="false" />
                 <element signature="method#main#0;class#WebCrawler#0" expanded="false" />
-                <element signature="class#LocalInfo#0;class#WebCrawler#0" expanded="false" />
-                <element signature="method#LocalInfo#0;class#LocalInfo#0;class#WebCrawler#0" expanded="false" />
                 <element signature="method#WebCrawler#0;class#WebCrawler#0" expanded="false" />
-                <element signature="method#download#0;class#WebCrawler#0" expanded="false" />
-                <element signature="method#createDownloadingCallable#0;class#WebCrawler#0" expanded="false" />
-                <element signature="e#4287#5839#0" expanded="false" />
-                <element signature="e#4723#4873#0" expanded="false" />
-                <element signature="e#5355#5385#0" expanded="false" />
-                <element signature="method#createExtractingCallable#0;class#WebCrawler#0" expanded="false" />
-                <element signature="e#6006#6633#0" expanded="false" />
-                <element signature="method#close#0;class#WebCrawler#0" expanded="false" />
+                <element signature="e#5636#5786#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaAdvanced.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JavaAdvanced.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,7 +89,6 @@
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/concurrent/IterativeParallelism.java" />
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/mapper/ParallelMapperImpl.java" />
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/CachingDownloader.java" />
-        <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java" />
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloClient.java" />
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloClientTest.java" />
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloServer.java" />
@@ -100,6 +99,7 @@
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloUDPClient.java" />
         <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloUDPServer.java" />
         <option value="$PROJECT_DIR$/src/test.java" />
+        <option value="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java" />
       </list>
     </option>
   </component>
@@ -302,7 +302,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.WebCrawler Tester">
     <configuration default="false" name="update" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -861,7 +861,7 @@
       <workItem from="1491776545240" duration="1361000" />
       <workItem from="1492332375445" duration="19812000" />
       <workItem from="1492358083227" duration="4195000" />
-      <workItem from="1492405677083" duration="2167000" />
+      <workItem from="1492405677083" duration="5800000" />
     </task>
     <task id="LOCAL-00001" summary="hw 6 hard">
       <created>1489969006836</created>
@@ -895,7 +895,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119162000" />
+    <option name="totallyTimeSpent" value="122795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="33" width="1920" height="1047" extended-state="6" />
@@ -911,7 +911,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29166666" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33442983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33442983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3377193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -972,14 +972,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/ref/ReferenceQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/URLUtils.java" />
     <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/locks/LockSupport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1373,24 +1365,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JavaAdvanced.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ConcurrentLinkedQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="355" column="13" lean-forward="false" selection-start-line="355" selection-start-column="13" selection-end-line="355" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="class#Node#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#Node#0;class#Node#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="initializer##0;class#Node#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;field#head#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;field#tail#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#ConcurrentLinkedQueue#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#ConcurrentLinkedQueue#1;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#ConcurrentLinkedQueue#1;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#updateHead#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#updateHead#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#succ#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#succ#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#offer#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#offer#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="e#12579#12623#0" expanded="false" />
+            <element signature="e#13044#13097#0" expanded="false" />
+            <element signature="method#poll#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="e#13730#13774#0" expanded="false" />
+            <element signature="method#peek#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#first#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#first#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#isEmpty#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#size#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#contains#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#remove#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#addAll#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#addAll#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="e#20455#20499#0" expanded="false" />
+            <element signature="e#20636#20674#0" expanded="false" />
+            <element signature="e#21064#21117#0" expanded="false" />
+            <element signature="docComment;method#toArray#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#toArray#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#toArray#1;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#toArray#1;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;field#nextNode#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;field#nextItem#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;field#lastRet#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#advance#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#advance#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#next#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#remove#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#writeObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#writeObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#readObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#readObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#trySplit#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#forEachRemaining#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#tryAdvance#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#estimateSize#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#characteristics#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#spliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="docComment;method#checkNotNull#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#checkNotNull#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#casTail#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="method#casHead#0;class#ConcurrentLinkedQueue#0" expanded="false" />
+            <element signature="initializer##0;class#ConcurrentLinkedQueue#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+        <state relative-caret-position="1864">
+          <caret line="166" column="82" lean-forward="false" selection-start-line="166" selection-start-column="82" selection-end-line="166" selection-end-column="82" />
           <folding>
             <element signature="docComment;class#WebCrawler#0" expanded="false" />
             <element signature="method#main#0;class#WebCrawler#0" expanded="false" />
-            <element signature="class#LocalInfo#0;class#WebCrawler#0" expanded="false" />
-            <element signature="method#LocalInfo#0;class#LocalInfo#0;class#WebCrawler#0" expanded="false" />
             <element signature="method#WebCrawler#0;class#WebCrawler#0" expanded="false" />
-            <element signature="method#download#0;class#WebCrawler#0" expanded="false" />
-            <element signature="method#createDownloadingCallable#0;class#WebCrawler#0" expanded="false" />
-            <element signature="e#4287#5839#0" expanded="false" />
-            <element signature="e#4723#4873#0" expanded="false" />
-            <element signature="e#5355#5385#0" expanded="false" />
-            <element signature="method#createExtractingCallable#0;class#WebCrawler#0" expanded="false" />
-            <element signature="e#6006#6633#0" expanded="false" />
-            <element signature="method#close#0;class#WebCrawler#0" expanded="false" />
+            <element signature="e#5636#5786#0" expanded="false" />
           </folding>
         </state>
       </provider>

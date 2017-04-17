@@ -49,16 +49,18 @@ public class WebCrawler implements Crawler {
     private class LocalInfo {
         //HashMap with processed URL
         final ConcurrentHashMap<String, Boolean> URLMap;
-
         //Future objects for all threads
-        ConcurrentLinkedQueue<Future<Result>> futures;
+        final ConcurrentLinkedQueue<Future<Result>> futures;
+        //downdloading tasks with should be submitted when number of thread working with current thread would be less then perHost
+        final ConcurrentLinkedQueue<Pair<Callable<Result>, String>> delayed;
 
-        ConcurrentLinkedQueue<Pair<Callable<Result>, String>> delayed;
+        final ConcurrentLinkedQueue<Callable<Result>> nextDepthCallables;
 
         LocalInfo() {
             futures = new ConcurrentLinkedQueue<>();
             delayed = new ConcurrentLinkedQueue<>();
             URLMap = new ConcurrentHashMap<>();
+            nextDepthCallables = new ConcurrentLinkedQueue<>();
         }
     }
 
@@ -75,27 +77,38 @@ public class WebCrawler implements Crawler {
     public Result download(String url, int depth) {
         //list of all sites
         List<String> downloaded = new ArrayList<>();
+        //map of result errors
         Map<String, IOException> errors = new HashMap<>();
+        //structures which are used by threads
         LocalInfo localInfo = new LocalInfo();
+        //init first url
         localInfo.URLMap.put(url, true);
+        //starting with first site
         localInfo.futures.add(downloadService.submit(createDownloadingCallable(url, depth, localInfo)));
         while (!localInfo.futures.isEmpty()) {
-            Future<Result> future = localInfo.futures.poll();
-            try {
-                Result result = future.get();
-                downloaded.addAll(result.getDownloaded());
-                errors.putAll(result.getErrors());
-            } catch (InterruptedException | ExecutionException e) {
-                //debug info
-                e.getCause().printStackTrace();
-            }
-            while (!localInfo.delayed.isEmpty()) {
-                Pair<Callable<Result>, String> pair = localInfo.delayed.poll();
-                if (downloadingPerHost.get(pair.getValue()) >= perHost) {
-                    localInfo.delayed.add(pair);
-                } else {
-                    localInfo.futures.add(downloadService.submit(pair.getKey()));
+            //downloading sites with current depth
+            while (!localInfo.futures.isEmpty()) {
+                Future<Result> future = localInfo.futures.poll();
+                try {
+                    Result result = future.get();
+                    downloaded.addAll(result.getDownloaded());
+                    errors.putAll(result.getErrors());
+                } catch (InterruptedException | ExecutionException e) {
+                    //debug info
+                    e.getCause().printStackTrace();
                 }
+                while (!localInfo.delayed.isEmpty()) {
+                    Pair<Callable<Result>, String> pair = localInfo.delayed.poll();
+                    if (downloadingPerHost.get(pair.getValue()) >= perHost) {
+                        localInfo.delayed.add(pair);
+                    } else {
+                        localInfo.futures.add(downloadService.submit(pair.getKey()));
+                    }
+                }
+            }
+            //putting tasks for downloading sites with lower depth
+            while (!localInfo.nextDepthCallables.isEmpty()) {
+                localInfo.futures.add(downloadService.submit(localInfo.nextDepthCallables.poll()));
             }
         }
         return new Result(downloaded, errors);
@@ -106,6 +119,7 @@ public class WebCrawler implements Crawler {
             List<String> downloaded = new ArrayList<>();
             Map<String, IOException> errors = new HashMap<>();
 
+            //getting host name, if errors occurs we set host = url
             String host;
             try {
                 host = URLUtils.getHost(url);
@@ -128,9 +142,9 @@ public class WebCrawler implements Crawler {
 
             //in this moment we can work with this site
             try {
+                //downloading site
                 Document document = downloader.download(url);
                 downloaded.add(url);
-                //pre: document was downloaded
                 //callable for extracting, if depth > 1
                 if (depth > 1) {
                     localInfo.futures.add(extractService.submit(createExtractingCallable(document, url, depth, localInfo)));
@@ -138,6 +152,7 @@ public class WebCrawler implements Crawler {
             } catch (IOException e) {
                 errors.put(url, e);
             }
+            //decreasing counter of current working with this host threads
             downloadingPerHost.compute(host, (key, value) -> value - 1);
             return new Result(downloaded, errors);
         };
@@ -147,11 +162,12 @@ public class WebCrawler implements Crawler {
         return () -> {
             HashMap<String, IOException> errors = new HashMap<>();
             try {
+                //extracting links
                 List<String> links = document.extractLinks();
+                //putting callable for downloading sites with lower depth in queue
                 for (String newUrl : links) {
                     if (localInfo.URLMap.put(newUrl, true) == null) {
-                        localInfo.futures.add(downloadService
-                                .submit(createDownloadingCallable(newUrl, depth - 1, localInfo)));
+                        localInfo.nextDepthCallables.add(createDownloadingCallable(newUrl, depth - 1, localInfo));
                     }
                 }
             } catch (IOException e) {
