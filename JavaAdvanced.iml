@@ -22,5 +22,6 @@
     <orderEntry type="library" name="ParallelMapperTest" level="project" />
     <orderEntry type="library" name="jsoup-1.8.1" level="project" />
     <orderEntry type="library" name="WebCrawlerTest" level="project" />
+    <orderEntry type="library" name="HelloUDPTest" level="project" />
   </component>
 </module>
