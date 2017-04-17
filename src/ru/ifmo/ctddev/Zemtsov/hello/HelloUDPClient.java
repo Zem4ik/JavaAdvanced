@@ -60,14 +60,14 @@ public class HelloUDPClient implements HelloClient {
                         datagramSocket.setSoTimeout(500);
                         byte[] buf = new byte[256];
                         DatagramPacket inPacket = new DatagramPacket(buf, buf.length);
-                        for (int j = 0; j < requests; ++j) {
+                        for (int j = 0; j < requests && !Thread.currentThread().isInterrupted(); ++j) {
                             String messageString = prefix + Integer.toString(finalI) + "_" + Integer.toString(j);
                             byte[] messageBytes = messageString.getBytes();
                             DatagramPacket packet = new DatagramPacket(messageBytes, messageBytes.length, inetAddress, port);
                             datagramSocket.send(packet);
 
                             boolean flag = true;
-                            while (flag) {
+                            while (flag && !Thread.currentThread().isInterrupted()) {
                                 try {
                                     datagramSocket.receive(inPacket);
                                     String receivedMessage = new String(inPacket.getData(), 0, inPacket.getLength(), Charset.forName("UTF-8"));

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34e8b64a-17da-496c-a725-7097b512b30e" name="Default" comment="hw 7 fix">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java" afterPath="$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java" />
-    </list>
+    <list default="true" id="34e8b64a-17da-496c-a725-7097b512b30e" name="Default" comment="hw 7 fix" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,8 +22,8 @@
       <file leaf-file-name="WebCrawler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1864">
-              <caret line="166" column="82" lean-forward="false" selection-start-line="166" selection-start-column="82" selection-end-line="166" selection-end-column="82" />
+            <state relative-caret-position="257">
+              <caret line="127" column="13" lean-forward="true" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="13" />
               <folding>
                 <element signature="docComment;class#WebCrawler#0" expanded="false" />
                 <element signature="method#main#0;class#WebCrawler#0" expanded="false" />
@@ -110,9 +107,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="33" />
-    <option name="width" value="1920" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -129,6 +127,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -245,31 +246,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="info" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kgeorgiy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="advanced" />
+              <option name="myItemId" value="artifacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -862,6 +844,7 @@
       <workItem from="1492332375445" duration="19812000" />
       <workItem from="1492358083227" duration="4195000" />
       <workItem from="1492405677083" duration="5800000" />
+      <workItem from="1492433129698" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="hw 6 hard">
       <created>1489969006836</created>
@@ -895,39 +878,39 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122795000" />
+    <option name="totallyTimeSpent" value="122850000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="33" width="1920" height="1047" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3234649" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33442983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29166666" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33442983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3377193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33694476" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2534685" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2563966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39802632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3234649" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -972,113 +955,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/locks/LockSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/locks/LockSupport.java" />
     <entry file="jar://$PROJECT_DIR$/WebCrawlerTest.jar!/info/kgeorgiy/java/advanced/crawler/Tester.class" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/Downloader.java" />
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/runners/model/FrameworkMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/rules/TestWatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/rules/RunRules.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7866">
-          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/BlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2879">
-          <caret line="231" column="9" lean-forward="false" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Executor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="139" column="9" lean-forward="false" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/AbstractExecutorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/artifacts/WebCrawlerTest.jar!/info/kgeorgiy/java/advanced/crawler/CachingDownloader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="23" column="50" lean-forward="false" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="198" column="6" lean-forward="false" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="1377" column="56" lean-forward="false" selection-start-line="1377" selection-start-column="40" selection-end-line="1377" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/runners/BlockJUnit4ClassRunner.class" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/runners/model/FrameworkMethod.class" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/internal/runners/statements/InvokeMethod.class" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/rules/TestWatcher.class" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/runners/ParentRunner.class" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/rules/RunRules.class" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/reflect/Method.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/BlockingQueue.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Executor.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/AbstractExecutorService.java" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/artifacts/WebCrawlerTest.jar!/info/kgeorgiy/java/advanced/crawler/CachingDownloader.class" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/Queue.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ThreadPoolExecutor.java" />
     <entry file="file://$PROJECT_DIR$/update.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1086,250 +979,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java-advanced-2017/java/info/kgeorgiy/java/advanced/hello/HelloServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-advanced-2017/java/info/kgeorgiy/java/advanced/hello/Util.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/java-advanced-2017/java/info/kgeorgiy/java/advanced/hello/HelloServer.java" />
+    <entry file="file://$PROJECT_DIR$/java-advanced-2017/java/info/kgeorgiy/java/advanced/hello/Util.class" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloServerTest.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/Util.class" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloClientTest.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/Tester.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloServer.java" />
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Callable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="64" column="6" lean-forward="false" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="67" column="24" lean-forward="false" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Future.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="150" column="6" lean-forward="false" selection-start-line="150" selection-start-column="6" selection-end-line="150" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Executors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-61">
-          <caret line="70" column="13" lean-forward="false" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newFixedThreadPool#0;class#Executors#0" expanded="false" />
-            <element signature="method#newFixedThreadPool#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newWorkStealingPool#0;class#Executors#0" expanded="false" />
-            <element signature="method#newWorkStealingPool#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newWorkStealingPool#1;class#Executors#0" expanded="false" />
-            <element signature="method#newWorkStealingPool#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newFixedThreadPool#1;class#Executors#0" expanded="false" />
-            <element signature="method#newFixedThreadPool#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newSingleThreadExecutor#0;class#Executors#0" expanded="false" />
-            <element signature="method#newSingleThreadExecutor#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newSingleThreadExecutor#1;class#Executors#0" expanded="false" />
-            <element signature="method#newSingleThreadExecutor#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newCachedThreadPool#0;class#Executors#0" expanded="false" />
-            <element signature="method#newCachedThreadPool#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newCachedThreadPool#1;class#Executors#0" expanded="false" />
-            <element signature="method#newCachedThreadPool#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newSingleThreadScheduledExecutor#0;class#Executors#0" expanded="false" />
-            <element signature="method#newSingleThreadScheduledExecutor#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newSingleThreadScheduledExecutor#1;class#Executors#0" expanded="false" />
-            <element signature="method#newSingleThreadScheduledExecutor#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newScheduledThreadPool#0;class#Executors#0" expanded="false" />
-            <element signature="method#newScheduledThreadPool#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#newScheduledThreadPool#1;class#Executors#0" expanded="false" />
-            <element signature="method#newScheduledThreadPool#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#unconfigurableExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#unconfigurableExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#unconfigurableScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#unconfigurableScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#defaultThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#privilegedThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#callable#0;class#Executors#0" expanded="false" />
-            <element signature="method#callable#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#callable#1;class#Executors#0" expanded="false" />
-            <element signature="method#callable#1;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#callable#2;class#Executors#0" expanded="false" />
-            <element signature="method#callable#2;class#Executors#0" expanded="false" />
-            <element signature="class#18677:18756" expanded="false" />
-            <element signature="method#call#0;class#18677:18756" expanded="false" />
-            <element signature="docComment;method#callable#3;class#Executors#0" expanded="false" />
-            <element signature="method#callable#3;class#Executors#0" expanded="false" />
-            <element signature="class#19248:19344" expanded="false" />
-            <element signature="method#call#0;class#19248:19344" expanded="false" />
-            <element signature="docComment;method#privilegedCallable#0;class#Executors#0" expanded="false" />
-            <element signature="method#privilegedCallable#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#privilegedCallableUsingCurrentClassLoader#0;class#Executors#0" expanded="false" />
-            <element signature="method#privilegedCallableUsingCurrentClassLoader#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;class#RunnableAdapter#0;class#Executors#0" expanded="false" />
-            <element signature="class#RunnableAdapter#0;class#Executors#0" expanded="false" />
-            <element signature="method#RunnableAdapter#0;class#RunnableAdapter#0;class#Executors#0" expanded="false" />
-            <element signature="method#call#0;class#RunnableAdapter#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;class#PrivilegedCallable#0;class#Executors#0" expanded="false" />
-            <element signature="class#PrivilegedCallable#0;class#Executors#0" expanded="false" />
-            <element signature="method#PrivilegedCallable#0;class#PrivilegedCallable#0;class#Executors#0" expanded="false" />
-            <element signature="method#call#0;class#PrivilegedCallable#0;class#Executors#0" expanded="false" />
-            <element signature="class#22475:22661" expanded="false" />
-            <element signature="method#run#0;class#22475:22661" expanded="false" />
-            <element signature="docComment;class#PrivilegedCallableUsingCurrentClassLoader#0;class#Executors#0" expanded="false" />
-            <element signature="class#PrivilegedCallableUsingCurrentClassLoader#0;class#Executors#0" expanded="false" />
-            <element signature="method#PrivilegedCallableUsingCurrentClassLoader#0;class#PrivilegedCallableUsingCurrentClassLoader#0;class#Executors#0" expanded="false" />
-            <element signature="e#23308#23357#0" expanded="false" />
-            <element signature="e#23590#23648#0" expanded="false" />
-            <element signature="method#call#0;class#PrivilegedCallableUsingCurrentClassLoader#0;class#Executors#0" expanded="false" />
-            <element signature="class#24124:24860" expanded="false" />
-            <element signature="method#run#0;class#24124:24860" expanded="false" />
-            <element signature="docComment;class#DefaultThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="class#DefaultThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="method#DefaultThreadFactory#0;class#DefaultThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="method#newThread#0;class#DefaultThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;class#PrivilegedThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="class#PrivilegedThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="method#PrivilegedThreadFactory#0;class#PrivilegedThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="e#26539#26588#0" expanded="false" />
-            <element signature="method#newThread#0;class#PrivilegedThreadFactory#0;class#Executors#0" expanded="false" />
-            <element signature="class#27159:27576" expanded="false" />
-            <element signature="method#run#0;class#27159:27576" expanded="false" />
-            <element signature="class#27262:27537" expanded="false" />
-            <element signature="method#run#0;class#27262:27537" expanded="false" />
-            <element signature="docComment;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#DelegatedExecutorService#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#execute#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#shutdown#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#shutdownNow#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#isShutdown#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#isTerminated#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#awaitTermination#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#invokeAll#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#invokeAll#1;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#invokeAny#0;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#invokeAny#1;class#DelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="class#FinalizableDelegatedExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#DelegatedScheduledExecutorService#0;class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#schedule#0;class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#schedule#1;class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#scheduleAtFixedRate#0;class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="method#scheduleWithFixedDelay#0;class#DelegatedScheduledExecutorService#0;class#Executors#0" expanded="false" />
-            <element signature="docComment;method#Executors#0;class#Executors#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-advanced-2017/java/info/kgeorgiy/java/advanced/hello/HelloClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Callable.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/Runnable.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Future.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/Executors.java" />
+    <entry file="file://$PROJECT_DIR$/java-advanced-2017/java/info/kgeorgiy/java/advanced/hello/HelloClient.java" />
     <entry file="file://$PROJECT_DIR$/src/info/kgeorgiy/java/advanced/hello/HelloClient.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/hello/HelloClient.java" />
     <entry file="file://$PROJECT_DIR$/src/info/kgeorgiy/java/advanced/hello/Util.java" />
     <entry file="file://$PROJECT_DIR$/src/info/kgeorgiy/java/advanced/hello/Util.class" />
     <entry file="file://$PROJECT_DIR$/src/info/kgeorgiy/java/advanced/hello/HelloServerTest.java" />
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/FutureTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="115" column="14" lean-forward="false" selection-start-line="115" selection-start-column="14" selection-end-line="115" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/net/DatagramPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="98" column="11" lean-forward="false" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="11" />
-          <folding>
-            <element signature="e#2362#2363#0" expanded="false" />
-            <element signature="e#2399#2400#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/net/DatagramSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="692" column="0" lean-forward="false" selection-start-line="692" selection-start-column="0" selection-end-line="692" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="2866" column="18" lean-forward="false" selection-start-line="2866" selection-start-column="18" selection-end-line="2866" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="610" column="40" lean-forward="false" selection-start-line="610" selection-start-column="19" selection-end-line="610" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="744" column="0" lean-forward="false" selection-start-line="744" selection-start-column="0" selection-end-line="744" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ExecutorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4122">
-          <caret line="263" column="14" lean-forward="false" selection-start-line="263" selection-start-column="14" selection-end-line="263" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#14929#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/FutureTask.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/net/DatagramPacket.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/net/DatagramSocket.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/String.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/Integer.java" />
+    <entry file="jar://$PROJECT_DIR$/java-advanced-2017/lib/junit-4.11.jar!/org/junit/Assert.class" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java" />
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ExecutorService.java" />
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1373,84 +1049,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ConcurrentLinkedQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="355" column="13" lean-forward="false" selection-start-line="355" selection-start-column="13" selection-end-line="355" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="class#Node#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#Node#0;class#Node#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="initializer##0;class#Node#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;field#head#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;field#tail#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#ConcurrentLinkedQueue#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#ConcurrentLinkedQueue#1;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#ConcurrentLinkedQueue#1;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#add#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#updateHead#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#updateHead#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#succ#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#succ#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#offer#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#offer#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="e#12579#12623#0" expanded="false" />
-            <element signature="e#13044#13097#0" expanded="false" />
-            <element signature="method#poll#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="e#13730#13774#0" expanded="false" />
-            <element signature="method#peek#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#first#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#first#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#isEmpty#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#size#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#size#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#contains#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#contains#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#remove#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#remove#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#addAll#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#addAll#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="e#20455#20499#0" expanded="false" />
-            <element signature="e#20636#20674#0" expanded="false" />
-            <element signature="e#21064#21117#0" expanded="false" />
-            <element signature="docComment;method#toArray#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#toArray#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#toArray#1;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#toArray#1;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#iterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;field#nextNode#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;field#nextItem#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;field#lastRet#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#advance#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#advance#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#next#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#remove#0;class#Itr#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#writeObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#writeObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#readObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#readObject#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#trySplit#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#forEachRemaining#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#tryAdvance#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#estimateSize#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#characteristics#0;class#CLQSpliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#spliterator#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="docComment;method#checkNotNull#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#checkNotNull#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#casTail#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="method#casHead#0;class#ConcurrentLinkedQueue#0" expanded="false" />
-            <element signature="initializer##0;class#ConcurrentLinkedQueue#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$USER_HOME$/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/ConcurrentLinkedQueue.java" />
     <entry file="file://$PROJECT_DIR$/src/ru/ifmo/ctddev/Zemtsov/crawler/WebCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1864">
-          <caret line="166" column="82" lean-forward="false" selection-start-line="166" selection-start-column="82" selection-end-line="166" selection-end-column="82" />
+        <state relative-caret-position="257">
+          <caret line="127" column="13" lean-forward="true" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#WebCrawler#0" expanded="false" />
             <element signature="method#main#0;class#WebCrawler#0" expanded="false" />
