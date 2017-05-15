@@ -84,10 +84,10 @@ public class HelloUDPClient implements HelloClient {
                     return null;
                 };
                 futures.add(executorService.submit(callable));
-                while (!futures.isEmpty()) {
-                    Future<Void> future = futures.poll();
-                    future.get();
-                }
+            }
+            while (!futures.isEmpty()) {
+                Future<Void> future = futures.poll();
+                future.get();
             }
             executorService.shutdownNow();
         } catch (UnknownHostException | InterruptedException | ExecutionException e) {
